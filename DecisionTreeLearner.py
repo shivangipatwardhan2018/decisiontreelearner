@@ -1,7 +1,6 @@
-# import numpy as np
-
 # from treelib import Tree, Node
 # from graphviz import Digraph
+import numpy as np
 import math
 from DataNode import DataNode
 from DataNodePriorityQueue import PriorityQueue
@@ -10,6 +9,7 @@ from DataNodePriorityQueue import PriorityQueue
 # Input:
 # Output: a DataNode determining which types of article is most common
 def pointEstimate():
+def pointEstimate(article, ):
     graphics = articlesArray.count("1")
     atheism = articlesArray.count("2")
     return DataNode(1) if (graphics > atheism) else DataNode(2)
@@ -30,11 +30,25 @@ def generateFeatureBasedDataSets(wordID):
     return (featureOccuresDataset, featureDoesNotOccureDataset)
 
 
-#TODO: handle case when the information gain is 0 for both
+## This function splits the the data based on the index array provided
+## Input: The dataset to split, the feature to split on
+# Output:
+# 1) An array of all the articles in which the word appears
+# 2) An Array of all the articles in which the word does not appear
+def generateFeatureBasedSplitDataSets(dataset, word):
+    featureOccuresDataset = []
+    # featureDoesNotOccureDataset = []
+    for index in dataset:
+        if(array[index][word] == 1):
+            featureOccuresDataset.append(index + 1)
+        # else:
+        #     featureDoesNotOccureDataset.append(index + 1)
+    return featureOccuresDataset
+
 # This funciton calculated the delta I(e) for each feature based split dataSet
 # Input: The dataSet split for if a feature appears/or not within an article
 # Outout: The I(e) for given data set
-def computeIndividualInformationGain(inputDataSet):
+def computeWeightedInformationGain(inputDataSet):
     featureArticleAtheism = 0.0
     featureArticleGraphics = 0.0
     # print inputDataSet
@@ -63,9 +77,9 @@ def computeIndividualInformationGain(inputDataSet):
 # Input: Example dataset split on the occurence of a feature
 # Output:
 def computeInformationGainDelta(featureAppearsIn, featureDoesNotAppearIn):
-    infoGainFeatureOne = computeIndividualInformationGain(featureAppearsIn)
+    infoGainFeatureOne = computeWeightedInformationGain(featureAppearsIn)
     # print infoGainFeatureOne
-    infoGainFeatureTwo = computeIndividualInformationGain(featureDoesNotAppearIn)
+    infoGainFeatureTwo = computeWeightedInformationGain(featureDoesNotAppearIn)
     # print infoGainFeatureTwo
     featureOneTotal = float(featureAppearsIn.__len__())
     featureTwoTotal = featureDoesNotAppearIn.__len__()
@@ -89,13 +103,13 @@ def generatePriorityQueue(inputDataSet):
     # print "Info Constant: " + str(informationConstant)
     for word in range(0, numWords):
         # print "AT INDEX: " + str(word + 1) + " WORD: " + wordDict[word + 1]
-        featureAppearsIn, featureDoesNotAppearIn = generateFeatureBasedDataSets(word)
-        # print featureAppearsIn, featureDoesNotAppearIn
-        splitInformationGain = computeInformationGainDelta(featureAppearsIn, featureDoesNotAppearIn)
+        featureAffirmative, featureNegative = generateFeatureBasedDataSets(word)
+        # print featureAffirmative, featureNegative
+        splitInformationGain = computeInformationGainDelta(featureAffirmative, featureNegative)
         # print "Info Split: " + str(splitInformationGain)
         # print "Priority: " + str(informationConstant - splitInformationGain)
         # break
-        pq.push(DataNode(word + 1, informationConstant - splitInformationGain), informationConstant - splitInformationGain)
+        pq.push(DataNode(word + 1, informationConstant - splitInformationGain, inputDataSet), informationConstant - splitInformationGain)
         # print pq
     return pq
 
@@ -106,21 +120,23 @@ def decisionTreeLearner():
     dt = pointEstimate()
     heapq = generatePriorityQueue(articlesArray)
     topFeature = heapq.pop()
-    print topFeature.featureName
+    print wordDict[topFeature.featureName]
     print topFeature.informationGain
     index = 0
-    while(index < 3566):
+    # #TODO: Alter this condition to be more valid -- delta is zero
+    while(index < 3565):
         nextFeature = heapq.pop()
-        for j in range(0, 2):
-
+        # print wordDict[nextFeature.featureName]
+        #for each feature
+        for dataSetIndex in range(0, 2):
+            returnedDataSet = generateFeatureBasedSplitDataSets(nextFeature.dataSets, nextFeature.featureName)
 
         index += 1
-
 
 def populateDataValues():
     global array
     array = [[0 for x in range(numWords)] for y in range(numArticles)]
-    # array = np.zeros((words, articles))
+    # array = np.zeros((numWords, numArticles))
 
     testData = []
     with open('dataset/trainData.txt') as trainingData:
