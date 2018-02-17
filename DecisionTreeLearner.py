@@ -6,23 +6,6 @@ import math
 from DataNode import DataNode
 from DataNodePriorityQueue import PriorityQueue
 
-
-## This function splits the the data based on the index array provided
-## Input: The dataset to split, the feature to split on
-# Output:
-# 1) An array of all the articles in which the word appears
-# 2) An Array of all the articles in which the word does not appear
-# def generateFeatureBasedSplitDataSets(dataset, word, featureValue):
-#     featureSplitDataset = []
-#     # print dataset
-#     # print len(dataset)
-#     for index in range(len(dataset)):
-#         if(index in dataset and array[int(index)][word] == featureValue):
-#             featureSplitDataset.append(index + 1)
-#     # print featureSplitDataset
-#     # print len(featureSplitDataset)
-#     return featureSplitDataset
-
 # This funciton calculated the delta I(e) for each feature based split dataSet
 # Input: The dataSet split for if a feature appears/or not within an article
 # Outout: The I(e) for given data set
@@ -148,19 +131,26 @@ def generateMaximumInformationGainElement(exampleDataset, remainingFeatures):
 # Core algorithm to generate the decision tree learner
 # Input:
 # Output: The final decision tree
+def calculateRemainingFeatures(remainingFeatures, word):
+    filteredRemainingFeatures = []
+    for wordid in remainingFeatures:
+        if wordid != word:
+            filteredRemainingFeatures.append(wordid)
+    return filteredRemainingFeatures
+
 def decisionTreeLearner(completeDataSet, remainingFeatures):
     # Calculate the point estimate for all the articles
     initialPointEstimate = pointEstimate(completeDataSet)
     maxGain = generateMaximumInformationGainElement(completeDataSet, remainingFeatures)
-    # maxGain.remainingFeaturesSet = remainingFeatures.remove(maxGain.featureName)
+    maxGain.remainingFeaturesSet = calculateRemainingFeatures(remainingFeatures, maxGain.featureName)
+    # print maxGain.remainingFeaturesSet
     heapq = PriorityQueue()
     heapq.push(maxGain, maxGain.informationGain)
-
     index = 0
     deltaGain = -1.0
     #TODO: Alter this condition to be more valid -- delta is zero
-    while(deltaGain != 0.0 or index < 10):
-        print "     ********************** New Element **********************   "
+    while(index < 10):
+        print "     ********************** New Element **********************   " + str(index)
         topFeature = heapq.pop()
         print wordDict[topFeature.featureName]
         print topFeature.informationGain
@@ -172,18 +162,20 @@ def decisionTreeLearner(completeDataSet, remainingFeatures):
             # print topFeature.dataSets[1]
             # print len(topFeature.dataSets[1])
             newInformationGainNode = generateMaximumInformationGainElement(splitDataSet, topFeature.remainingFeaturesSet)
-            print newInformationGainNode.featureName
-            print wordDict[newInformationGainNode.featureName]
-            print newInformationGainNode.informationGain
-            print newInformationGainNode.dataSets[0]
-            print newInformationGainNode.dataSets[1]
-            print newInformationGainNode.remainingFeaturesSet
+            newInformationGainNode.remainingFeaturesSet = calculateRemainingFeatures(topFeature.remainingFeaturesSet, maxGain.featureName)
+            # print newInformationGainNode.featureName
+            # print wordDict[newInformationGainNode.featureName]
+            # print newInformationGainNode.informationGain
+            # print newInformationGainNode.dataSets[0]
+            # print newInformationGainNode.dataSets[1]
+            # print newInformationGainNode.remainingFeaturesSet
+            newPointEstimate = pointEstimate(splitDataSet)
             # newInformationGainNode.decisionTree.append(pointEstimate(splitDataSet))
               # print pointestimate
             heapq.push(newInformationGainNode, newInformationGainNode.informationGain)
         index += 1
         deltaGain = topFeature.informationGain
-        break
+        # break
 
 def populateDataValues():
     # WordFile holds all the actual words
