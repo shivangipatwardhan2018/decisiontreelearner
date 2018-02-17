@@ -12,3 +12,14 @@ class PriorityQueue:
 
     def pop(self):
         return heapq.heappop(self.queue)[-1]
+
+    def peekInformationGainDelta(self):
+        element = heapq.heappop(self.queue)[-1]
+        value = element.informationgain
+        heapq.heappush(value)
+        self.index += 1
+        return value
+
+    def isEmpty(self):
+        def isEmpty(self):
+            return self.index == 0

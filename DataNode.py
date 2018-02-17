@@ -1,14 +1,12 @@
 
 class DataNode:
 
-    # def __init__(self, featurename, informationgain=None, affirmativedataset = None, negativedataset = None, decisiontree = None):
-    def __init__(self, featurename, informationgain=None, datasets=None, negativedataset=None,
-                 decisiontree=None):
+    def __init__(self, featurename =None, informationgain=None, datasets=None, remainingfeatures = None, decisiontree=None):
         self.featureName = featurename
         self.informationGain = informationgain
         self.dataSets = datasets
-        # self.affirmativeDataSet = affirmativedataset
-        # self.negativeDataSet = negativedataset
+        self.remainingFeaturesSet = remainingfeatures
         self.decisionTree = decisiontree
+
 
 
