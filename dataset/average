@@ -1,0 +1,402 @@
+digraph {
+	"1 god\n0.109215568062\n2"
+	"0 writes\n0.214992437297\n2" -> "1 god\n0.109215568062\n2" [label=No]
+	"2 graphics\n0.118888826771\n1"
+	"0 writes\n0.214992437297\n2" -> "2 graphics\n0.118888826771\n1" [label=Yes]
+	"3 image\n0.085767875642\n1"
+	"2 graphics\n0.118888826771\n1" -> "3 image\n0.085767875642\n1" [label=No]
+	"4 archive\n0.0\n2"
+	"2 graphics\n0.118888826771\n1" -> "4 archive\n0.0\n2" [label=Yes]
+	"5 that\n0.0778348840957\n2"
+	"1 god\n0.109215568062\n2" -> "5 that\n0.0778348840957\n2" [label=No]
+	"6 use\n0.212290066617\n1"
+	"1 god\n0.109215568062\n2" -> "6 use\n0.212290066617\n1" [label=Yes]
+	"7 archive\n-0.0\n1"
+	"6 use\n0.212290066617\n1" -> "7 archive\n-0.0\n1" [label=No]
+	"8 archive\n1.0\n1"
+	"6 use\n0.212290066617\n1" -> "8 archive\n1.0\n1" [label=Yes]
+	"9 name\n0.0\n2"
+	"8 archive\n1.0\n1" -> "9 name\n0.0\n2" [label=No]
+	"10 name\n-0.0\n1"
+	"8 archive\n1.0\n1" -> "10 name\n-0.0\n1" [label=Yes]
+	"11 that\n0.0864686295328\n1"
+	"3 image\n0.085767875642\n1" -> "11 that\n0.0864686295328\n1" [label=No]
+	"12 archive\n-0.0\n2"
+	"3 image\n0.085767875642\n1" -> "12 archive\n-0.0\n2" [label=Yes]
+	"13 god\n0.108338840478\n1"
+	"11 that\n0.0864686295328\n1" -> "13 god\n0.108338840478\n1" [label=No]
+	"14 program\n0.0591914776965\n1"
+	"11 that\n0.0864686295328\n1" -> "14 program\n0.0591914776965\n1" [label=Yes]
+	"15 keith\n0.148815931386\n2"
+	"13 god\n0.108338840478\n1" -> "15 keith\n0.148815931386\n2" [label=No]
+	"16 archive\n-0.0\n1"
+	"13 god\n0.108338840478\n1" -> "16 archive\n-0.0\n1" [label=Yes]
+	"17 who\n0.106888216292\n2"
+	"15 keith\n0.148815931386\n2" -> "17 who\n0.106888216292\n2" [label=No]
+	"18 archive\n-0.0\n1"
+	"15 keith\n0.148815931386\n2" -> "18 archive\n-0.0\n1" [label=Yes]
+	"19 have\n0.0828759886993\n2"
+	"17 who\n0.106888216292\n2" -> "19 have\n0.0828759886993\n2" [label=No]
+	"20 the\n0.468995593589\n1"
+	"17 who\n0.106888216292\n2" -> "20 the\n0.468995593589\n1" [label=Yes]
+	"21 archive\n-0.0\n2"
+	"20 the\n0.468995593589\n1" -> "21 archive\n-0.0\n2" [label=No]
+	"22 archive\n-0.0\n1"
+	"20 the\n0.468995593589\n1" -> "22 archive\n-0.0\n1" [label=Yes]
+	"23 am\n0.126542265091\n2"
+	"19 have\n0.0828759886993\n2" -> "23 am\n0.126542265091\n2" [label=No]
+	"24 alt\n0.138240951179\n2"
+	"19 have\n0.0828759886993\n2" -> "24 alt\n0.138240951179\n2" [label=Yes]
+	"25 as\n0.218826397273\n2"
+	"24 alt\n0.138240951179\n2" -> "25 as\n0.218826397273\n2" [label=No]
+	"26 archive\n-0.0\n1"
+	"24 alt\n0.138240951179\n2" -> "26 archive\n-0.0\n1" [label=Yes]
+	"27 archive\n-0.0\n2"
+	"25 as\n0.218826397273\n2" -> "27 archive\n-0.0\n2" [label=No]
+	"28 or\n0.970950594455\n2"
+	"25 as\n0.218826397273\n2" -> "28 or\n0.970950594455\n2" [label=Yes]
+	"29 archive\n-0.0\n2"
+	"28 or\n0.970950594455\n2" -> "29 archive\n-0.0\n2" [label=No]
+	"30 archive\n-0.0\n1"
+	"28 or\n0.970950594455\n2" -> "30 archive\n-0.0\n1" [label=Yes]
+	"31 time\n0.116313998057\n1"
+	"23 am\n0.126542265091\n2" -> "31 time\n0.116313998057\n1" [label=No]
+	"32 archive\n-0.0\n2"
+	"23 am\n0.126542265091\n2" -> "32 archive\n-0.0\n2" [label=Yes]
+	"33 by\n0.119404126433\n1"
+	"31 time\n0.116313998057\n1" -> "33 by\n0.119404126433\n1" [label=No]
+	"34 archive\n-0.0\n2"
+	"31 time\n0.116313998057\n1" -> "34 archive\n-0.0\n2" [label=Yes]
+	"35 with\n0.239020869564\n1"
+	"33 by\n0.119404126433\n1" -> "35 with\n0.239020869564\n1" [label=No]
+	"36 archive\n-0.0\n1"
+	"33 by\n0.119404126433\n1" -> "36 archive\n-0.0\n1" [label=Yes]
+	"37 you\n0.184202517513\n1"
+	"35 with\n0.239020869564\n1" -> "37 you\n0.184202517513\n1" [label=No]
+	"38 archive\n-0.0\n2"
+	"35 with\n0.239020869564\n1" -> "38 archive\n-0.0\n2" [label=Yes]
+	"39 from\n0.1234691524\n1"
+	"37 you\n0.184202517513\n1" -> "39 from\n0.1234691524\n1" [label=No]
+	"40 archive\n-0.0\n1"
+	"37 you\n0.184202517513\n1" -> "40 archive\n-0.0\n1" [label=Yes]
+	"41 article\n0.197351645243\n1"
+	"39 from\n0.1234691524\n1" -> "41 article\n0.197351645243\n1" [label=No]
+	"42 archive\n-0.0\n2"
+	"39 from\n0.1234691524\n1" -> "42 archive\n-0.0\n2" [label=Yes]
+	"43 this\n0.863120568567\n2"
+	"41 article\n0.197351645243\n1" -> "43 this\n0.863120568567\n2" [label=No]
+	"44 get\n0.268995593589\n1"
+	"41 article\n0.197351645243\n1" -> "44 get\n0.268995593589\n1" [label=Yes]
+	"45 archive\n-0.0\n2"
+	"43 this\n0.863120568567\n2" -> "45 archive\n-0.0\n2" [label=No]
+	"46 archive\n-0.0\n1"
+	"43 this\n0.863120568567\n2" -> "46 archive\n-0.0\n1" [label=Yes]
+	"47 try\n0.503258334776\n1"
+	"44 get\n0.268995593589\n1" -> "47 try\n0.503258334776\n1" [label=No]
+	"48 archive\n-0.0\n2"
+	"44 get\n0.268995593589\n1" -> "48 archive\n-0.0\n2" [label=Yes]
+	"49 archive\n-0.0\n1"
+	"47 try\n0.503258334776\n1" -> "49 archive\n-0.0\n1" [label=No]
+	"50 archive\n-0.0\n2"
+	"47 try\n0.503258334776\n1" -> "50 archive\n-0.0\n2" [label=Yes]
+	"51 bible\n0.0475424422994\n2"
+	"5 that\n0.0778348840957\n2" -> "51 bible\n0.0475424422994\n2" [label=No]
+	"52 wrote\n0.097186247382\n2"
+	"5 that\n0.0778348840957\n2" -> "52 wrote\n0.097186247382\n2" [label=Yes]
+	"53 people\n0.103212841661\n2"
+	"52 wrote\n0.097186247382\n2" -> "53 people\n0.103212841661\n2" [label=No]
+	"54 ve\n0.242018335608\n1"
+	"52 wrote\n0.097186247382\n2" -> "54 ve\n0.242018335608\n1" [label=Yes]
+	"55 came\n0.39113491086\n1"
+	"54 ve\n0.242018335608\n1" -> "55 came\n0.39113491086\n1" [label=No]
+	"56 archive\n0.0\n2"
+	"54 ve\n0.242018335608\n1" -> "56 archive\n0.0\n2" [label=Yes]
+	"57 last\n0.258018668665\n1"
+	"55 came\n0.39113491086\n1" -> "57 last\n0.258018668665\n1" [label=No]
+	"58 archive\n-0.0\n2"
+	"55 came\n0.39113491086\n1" -> "58 archive\n-0.0\n2" [label=Yes]
+	"59 archive\n-0.0\n1"
+	"57 last\n0.258018668665\n1" -> "59 archive\n-0.0\n1" [label=No]
+	"60 archive\n-0.0\n2"
+	"57 last\n0.258018668665\n1" -> "60 archive\n-0.0\n2" [label=Yes]
+	"61 religious\n0.109919810283\n2"
+	"53 people\n0.103212841661\n2" -> "61 religious\n0.109919810283\n2" [label=No]
+	"62 windows\n0.696212260125\n1"
+	"53 people\n0.103212841661\n2" -> "62 windows\n0.696212260125\n1" [label=Yes]
+	"63 archive\n0.0\n1"
+	"62 windows\n0.696212260125\n1" -> "63 archive\n0.0\n1" [label=No]
+	"64 archive\n0.0\n2"
+	"62 windows\n0.696212260125\n1" -> "64 archive\n0.0\n2" [label=Yes]
+	"65 an\n0.0811137045412\n2"
+	"61 religious\n0.109919810283\n2" -> "65 an\n0.0811137045412\n2" [label=No]
+	"66 archive\n-0.0\n1"
+	"61 religious\n0.109919810283\n2" -> "66 archive\n-0.0\n1" [label=Yes]
+	"67 he\n0.110503284243\n2"
+	"65 an\n0.0811137045412\n2" -> "67 he\n0.110503284243\n2" [label=No]
+	"68 can\n0.19281608686\n2"
+	"65 an\n0.0811137045412\n2" -> "68 can\n0.19281608686\n2" [label=Yes]
+	"69 what\n0.26816481133\n1"
+	"68 can\n0.19281608686\n2" -> "69 what\n0.26816481133\n1" [label=No]
+	"70 day\n0.322531220036\n2"
+	"68 can\n0.19281608686\n2" -> "70 day\n0.322531220036\n2" [label=Yes]
+	"71 atheism\n0.297472248919\n2"
+	"70 day\n0.322531220036\n2" -> "71 atheism\n0.297472248919\n2" [label=No]
+	"72 archive\n-0.0\n1"
+	"70 day\n0.322531220036\n2" -> "72 archive\n-0.0\n1" [label=Yes]
+	"73 archive\n0.0\n2"
+	"71 atheism\n0.297472248919\n2" -> "73 archive\n0.0\n2" [label=No]
+	"74 archive\n-0.0\n1"
+	"71 atheism\n0.297472248919\n2" -> "74 archive\n-0.0\n1" [label=Yes]
+	"75 know\n0.359984182355\n2"
+	"69 what\n0.26816481133\n1" -> "75 know\n0.359984182355\n2" [label=No]
+	"76 archive\n-0.0\n1"
+	"69 what\n0.26816481133\n1" -> "76 archive\n-0.0\n1" [label=Yes]
+	"77 will\n0.458105895157\n1"
+	"75 know\n0.359984182355\n2" -> "77 will\n0.458105895157\n1" [label=No]
+	"78 archive\n-0.0\n2"
+	"75 know\n0.359984182355\n2" -> "78 archive\n-0.0\n2" [label=Yes]
+	"79 price\n0.591672778582\n1"
+	"77 will\n0.458105895157\n1" -> "79 price\n0.591672778582\n1" [label=No]
+	"80 archive\n-0.0\n2"
+	"77 will\n0.458105895157\n1" -> "80 archive\n-0.0\n2" [label=Yes]
+	"81 archive\n-0.0\n1"
+	"79 price\n0.591672778582\n1" -> "81 archive\n-0.0\n1" [label=No]
+	"82 archive\n-0.0\n2"
+	"79 price\n0.591672778582\n1" -> "82 archive\n-0.0\n2" [label=Yes]
+	"83 face\n0.0880882322008\n2"
+	"67 he\n0.110503284243\n2" -> "83 face\n0.0880882322008\n2" [label=No]
+	"84 last\n0.721928094887\n1"
+	"67 he\n0.110503284243\n2" -> "84 last\n0.721928094887\n1" [label=Yes]
+	"85 archive\n-0.0\n1"
+	"84 last\n0.721928094887\n1" -> "85 archive\n-0.0\n1" [label=No]
+	"86 archive\n-0.0\n2"
+	"84 last\n0.721928094887\n1" -> "86 archive\n-0.0\n2" [label=Yes]
+	"87 organizations\n0.0510273710056\n2"
+	"83 face\n0.0880882322008\n2" -> "87 organizations\n0.0510273710056\n2" [label=No]
+	"88 archive\n-0.0\n1"
+	"83 face\n0.0880882322008\n2" -> "88 archive\n-0.0\n1" [label=Yes]
+	"89 comp\n0.0427413706246\n1"
+	"14 program\n0.0591914776965\n1" -> "89 comp\n0.0427413706246\n1" [label=No]
+	"90 archive\n-0.0\n2"
+	"14 program\n0.0591914776965\n1" -> "90 archive\n-0.0\n2" [label=Yes]
+	"91 biblical\n0.0585718920788\n2"
+	"87 organizations\n0.0510273710056\n2" -> "91 biblical\n0.0585718920788\n2" [label=No]
+	"92 archive\n-0.0\n1"
+	"87 organizations\n0.0510273710056\n2" -> "92 archive\n-0.0\n1" [label=Yes]
+	"93 doubt\n0.0782324652577\n2"
+	"91 biblical\n0.0585718920788\n2" -> "93 doubt\n0.0782324652577\n2" [label=No]
+	"94 archive\n-0.0\n1"
+	"91 biblical\n0.0585718920788\n2" -> "94 archive\n-0.0\n1" [label=Yes]
+	"95 archive\n-0.0\n2"
+	"93 doubt\n0.0782324652577\n2" -> "95 archive\n-0.0\n2" [label=No]
+	"96 archive\n-0.0\n1"
+	"93 doubt\n0.0782324652577\n2" -> "96 archive\n-0.0\n1" [label=Yes]
+	"97 atheist\n0.0383221894363\n2"
+	"51 bible\n0.0475424422994\n2" -> "97 atheist\n0.0383221894363\n2" [label=No]
+	"98 archive\n-0.0\n1"
+	"51 bible\n0.0475424422994\n2" -> "98 archive\n-0.0\n1" [label=Yes]
+	"99 uchicago\n0.0340539729724\n1"
+	"89 comp\n0.0427413706246\n1" -> "99 uchicago\n0.0340539729724\n1" [label=No]
+	"100 archive\n-0.0\n2"
+	"89 comp\n0.0427413706246\n1" -> "100 archive\n-0.0\n2" [label=Yes]
+	"1 name\n0.993590066057\n2"
+	"0 archive\n0.993453422328\n2" -> "1 name\n0.993590066057\n2" [label=No]
+	"2 name\n0.970950594455\n2"
+	"0 archive\n0.993453422328\n2" -> "2 name\n0.970950594455\n2" [label=Yes]
+	"3 atheism\n0.992957225931\n2"
+	"1 name\n0.993590066057\n2" -> "3 atheism\n0.992957225931\n2" [label=No]
+	"4 atheism\n0.996316519559\n1"
+	"1 name\n0.993590066057\n2" -> "4 atheism\n0.996316519559\n1" [label=Yes]
+	"5 resources\n0.998845535995\n2"
+	"4 atheism\n0.996316519559\n1" -> "5 resources\n0.998845535995\n2" [label=No]
+	"6 resources\n-0.0\n1"
+	"4 atheism\n0.996316519559\n1" -> "6 resources\n-0.0\n1" [label=Yes]
+	"7 alt\n0.994984828186\n2"
+	"5 resources\n0.998845535995\n2" -> "7 alt\n0.994984828186\n2" [label=No]
+	"8 alt\n-0.0\n1"
+	"5 resources\n0.998845535995\n2" -> "8 alt\n-0.0\n1" [label=Yes]
+	"9 last\n0.994984828186\n2"
+	"7 alt\n0.994984828186\n2" -> "9 last\n0.994984828186\n2" [label=No]
+	"10 last\n0.0\n1"
+	"7 alt\n0.994984828186\n2" -> "10 last\n0.0\n1" [label=Yes]
+	"11 modified\n0.998635964159\n2"
+	"9 last\n0.994984828186\n2" -> "11 modified\n0.998635964159\n2" [label=No]
+	"12 modified\n-0.0\n2"
+	"9 last\n0.994984828186\n2" -> "12 modified\n-0.0\n2" [label=Yes]
+	"13 december\n0.998635964159\n2"
+	"11 modified\n0.998635964159\n2" -> "13 december\n0.998635964159\n2" [label=No]
+	"14 december\n0.0\n1"
+	"11 modified\n0.998635964159\n2" -> "14 december\n0.0\n1" [label=Yes]
+	"15 version\n0.998635964159\n2"
+	"13 december\n0.998635964159\n2" -> "15 version\n0.998635964159\n2" [label=No]
+	"16 version\n0.0\n1"
+	"13 december\n0.998635964159\n2" -> "16 version\n0.0\n1" [label=Yes]
+	"17 atheist\n1.0\n1"
+	"15 version\n0.998635964159\n2" -> "17 atheist\n1.0\n1" [label=No]
+	"18 atheist\n-0.0\n2"
+	"15 version\n0.998635964159\n2" -> "18 atheist\n-0.0\n2" [label=Yes]
+	"19 addresses\n1.0\n1"
+	"17 atheist\n1.0\n1" -> "19 addresses\n1.0\n1" [label=No]
+	"20 addresses\n0.0\n1"
+	"17 atheist\n1.0\n1" -> "20 addresses\n0.0\n1" [label=Yes]
+	"21 of\n0.998363672594\n1"
+	"19 addresses\n1.0\n1" -> "21 of\n0.998363672594\n1" [label=No]
+	"22 of\n-0.0\n2"
+	"19 addresses\n1.0\n1" -> "22 of\n-0.0\n2" [label=Yes]
+	"23 organizations\n0.970950594455\n1"
+	"21 of\n0.998363672594\n1" -> "23 organizations\n0.970950594455\n1" [label=No]
+	"24 organizations\n1.0\n1"
+	"21 of\n0.998363672594\n1" -> "24 organizations\n1.0\n1" [label=Yes]
+	"25 usa\n1.0\n1"
+	"24 organizations\n1.0\n1" -> "25 usa\n1.0\n1" [label=No]
+	"26 usa\n0.0\n1"
+	"24 organizations\n1.0\n1" -> "26 usa\n0.0\n1" [label=Yes]
+	"27 freedom\n1.0\n1"
+	"25 usa\n1.0\n1" -> "27 freedom\n1.0\n1" [label=No]
+	"28 freedom\n0.0\n1"
+	"25 usa\n1.0\n1" -> "28 freedom\n0.0\n1" [label=Yes]
+	"29 from\n1.0\n1"
+	"27 freedom\n1.0\n1" -> "29 from\n1.0\n1" [label=No]
+	"30 from\n0.0\n1"
+	"27 freedom\n1.0\n1" -> "30 from\n0.0\n1" [label=Yes]
+	"31 religion\n0.979868756651\n1"
+	"29 from\n1.0\n1" -> "31 religion\n0.979868756651\n1" [label=No]
+	"32 religion\n0.811278124459\n2"
+	"29 from\n1.0\n1" -> "32 religion\n0.811278124459\n2" [label=Yes]
+	"33 resources\n0.985587069842\n2"
+	"3 atheism\n0.992957225931\n2" -> "33 resources\n0.985587069842\n2" [label=No]
+	"34 resources\n-0.0\n1"
+	"3 atheism\n0.992957225931\n2" -> "34 resources\n-0.0\n1" [label=Yes]
+	"35 alt\n0.985942978305\n2"
+	"33 resources\n0.985587069842\n2" -> "35 alt\n0.985942978305\n2" [label=No]
+	"36 alt\n-0.0\n2"
+	"33 resources\n0.985587069842\n2" -> "36 alt\n-0.0\n2" [label=Yes]
+	"37 last\n0.984735559753\n2"
+	"35 alt\n0.985942978305\n2" -> "37 last\n0.984735559753\n2" [label=No]
+	"38 last\n0.918295834054\n1"
+	"35 alt\n0.985942978305\n2" -> "38 last\n0.918295834054\n1" [label=Yes]
+	"39 modified\n0.984785643889\n2"
+	"37 last\n0.984735559753\n2" -> "39 modified\n0.984785643889\n2" [label=No]
+	"40 modified\n0.982858689713\n2"
+	"37 last\n0.984735559753\n2" -> "40 modified\n0.982858689713\n2" [label=Yes]
+	"41 december\n0.984720809133\n2"
+	"39 modified\n0.984785643889\n2" -> "41 december\n0.984720809133\n2" [label=No]
+	"42 december\n1.0\n1"
+	"39 modified\n0.984785643889\n2" -> "42 december\n1.0\n1" [label=Yes]
+	"43 version\n1.0\n1"
+	"42 december\n1.0\n1" -> "43 version\n1.0\n1" [label=No]
+	"44 version\n0.0\n1"
+	"42 december\n1.0\n1" -> "44 version\n0.0\n1" [label=Yes]
+	"45 atheist\n1.0\n1"
+	"43 version\n1.0\n1" -> "45 atheist\n1.0\n1" [label=No]
+	"46 atheist\n0.0\n1"
+	"43 version\n1.0\n1" -> "46 atheist\n0.0\n1" [label=Yes]
+	"47 addresses\n-0.0\n2"
+	"45 atheist\n1.0\n1" -> "47 addresses\n-0.0\n2" [label=No]
+	"48 addresses\n-0.0\n1"
+	"45 atheist\n1.0\n1" -> "48 addresses\n-0.0\n1" [label=Yes]
+	"49 version\n0.985101847317\n2"
+	"41 december\n0.984720809133\n2" -> "49 version\n0.985101847317\n2" [label=No]
+	"50 version\n0.0\n2"
+	"41 december\n0.984720809133\n2" -> "50 version\n0.0\n2" [label=Yes]
+	"51 atheist\n0.987584473689\n2"
+	"49 version\n0.985101847317\n2" -> "51 atheist\n0.987584473689\n2" [label=No]
+	"52 atheist\n0.721928094887\n2"
+	"49 version\n0.985101847317\n2" -> "52 atheist\n0.721928094887\n2" [label=Yes]
+	"53 addresses\n0.982156994058\n2"
+	"51 atheist\n0.987584473689\n2" -> "53 addresses\n0.982156994058\n2" [label=No]
+	"54 addresses\n0.413816850304\n1"
+	"51 atheist\n0.987584473689\n2" -> "54 addresses\n0.413816850304\n1" [label=Yes]
+	"55 december\n0.989587521222\n2"
+	"40 modified\n0.982858689713\n2" -> "55 december\n0.989587521222\n2" [label=No]
+	"56 december\n-0.0\n2"
+	"40 modified\n0.982858689713\n2" -> "56 december\n-0.0\n2" [label=Yes]
+	"57 version\n0.989587521222\n2"
+	"55 december\n0.989587521222\n2" -> "57 version\n0.989587521222\n2" [label=No]
+	"58 version\n0.0\n1"
+	"55 december\n0.989587521222\n2" -> "58 version\n0.0\n1" [label=Yes]
+	"59 atheist\n0.987692508896\n2"
+	"57 version\n0.989587521222\n2" -> "59 atheist\n0.987692508896\n2" [label=No]
+	"60 atheist\n1.0\n1"
+	"57 version\n0.989587521222\n2" -> "60 atheist\n1.0\n1" [label=Yes]
+	"61 addresses\n1.0\n1"
+	"60 atheist\n1.0\n1" -> "61 addresses\n1.0\n1" [label=No]
+	"62 addresses\n0.0\n1"
+	"60 atheist\n1.0\n1" -> "62 addresses\n0.0\n1" [label=Yes]
+	"63 of\n1.0\n1"
+	"61 addresses\n1.0\n1" -> "63 of\n1.0\n1" [label=No]
+	"64 of\n0.0\n1"
+	"61 addresses\n1.0\n1" -> "64 of\n0.0\n1" [label=Yes]
+	"65 organizations\n0.0\n1"
+	"63 of\n1.0\n1" -> "65 organizations\n0.0\n1" [label=No]
+	"66 organizations\n1.0\n1"
+	"63 of\n1.0\n1" -> "66 organizations\n1.0\n1" [label=Yes]
+	"67 usa\n1.0\n1"
+	"66 organizations\n1.0\n1" -> "67 usa\n1.0\n1" [label=No]
+	"68 usa\n0.0\n1"
+	"66 organizations\n1.0\n1" -> "68 usa\n0.0\n1" [label=Yes]
+	"69 freedom\n1.0\n1"
+	"67 usa\n1.0\n1" -> "69 freedom\n1.0\n1" [label=No]
+	"70 freedom\n0.0\n1"
+	"67 usa\n1.0\n1" -> "70 freedom\n0.0\n1" [label=Yes]
+	"71 from\n1.0\n1"
+	"69 freedom\n1.0\n1" -> "71 from\n1.0\n1" [label=No]
+	"72 from\n0.0\n1"
+	"69 freedom\n1.0\n1" -> "72 from\n0.0\n1" [label=Yes]
+	"73 religion\n-0.0\n1"
+	"71 from\n1.0\n1" -> "73 religion\n-0.0\n1" [label=No]
+	"74 religion\n-0.0\n2"
+	"71 from\n1.0\n1" -> "74 religion\n-0.0\n2" [label=Yes]
+	"75 addresses\n0.976020648237\n2"
+	"59 atheist\n0.987692508896\n2" -> "75 addresses\n0.976020648237\n2" [label=No]
+	"76 addresses\n-0.0\n1"
+	"59 atheist\n0.987692508896\n2" -> "76 addresses\n-0.0\n1" [label=Yes]
+	"77 of\n0.982586889318\n2"
+	"53 addresses\n0.982156994058\n2" -> "77 of\n0.982586889318\n2" [label=No]
+	"78 of\n-0.0\n2"
+	"53 addresses\n0.982156994058\n2" -> "78 of\n-0.0\n2" [label=Yes]
+	"79 organizations\n0.681545512748\n2"
+	"77 of\n0.982586889318\n2" -> "79 organizations\n0.681545512748\n2" [label=No]
+	"80 organizations\n0.99966738732\n1"
+	"77 of\n0.982586889318\n2" -> "80 organizations\n0.99966738732\n1" [label=Yes]
+	"81 usa\n0.999752610166\n1"
+	"80 organizations\n0.99966738732\n1" -> "81 usa\n0.999752610166\n1" [label=No]
+	"82 usa\n0.811278124459\n1"
+	"80 organizations\n0.99966738732\n1" -> "82 usa\n0.811278124459\n1" [label=Yes]
+	"83 freedom\n0.999790187413\n1"
+	"81 usa\n0.999752610166\n1" -> "83 freedom\n0.999790187413\n1" [label=No]
+	"84 freedom\n0.918295834054\n1"
+	"81 usa\n0.999752610166\n1" -> "84 freedom\n0.918295834054\n1" [label=Yes]
+	"85 from\n0.999955834081\n1"
+	"83 freedom\n0.999790187413\n1" -> "85 from\n0.999955834081\n1" [label=No]
+	"86 from\n0.0\n1"
+	"83 freedom\n0.999790187413\n1" -> "86 from\n0.0\n1" [label=Yes]
+	"87 religion\n0.998279197081\n2"
+	"85 from\n0.999955834081\n1" -> "87 religion\n0.998279197081\n2" [label=No]
+	"88 religion\n0.979868756651\n1"
+	"85 from\n0.999955834081\n1" -> "88 religion\n0.979868756651\n1" [label=Yes]
+	"89 foundation\n0.99605558288\n2"
+	"87 religion\n0.998279197081\n2" -> "89 foundation\n0.99605558288\n2" [label=No]
+	"90 foundation\n0.0\n1"
+	"87 religion\n0.998279197081\n2" -> "90 foundation\n0.0\n1" [label=Yes]
+	"91 darwin\n0.99605558288\n2"
+	"89 foundation\n0.99605558288\n2" -> "91 darwin\n0.99605558288\n2" [label=No]
+	"92 darwin\n0.0\n1"
+	"89 foundation\n0.99605558288\n2" -> "92 darwin\n0.0\n1" [label=Yes]
+	"93 fish\n0.99605558288\n2"
+	"91 darwin\n0.99605558288\n2" -> "93 fish\n0.99605558288\n2" [label=No]
+	"94 fish\n0.0\n1"
+	"91 darwin\n0.99605558288\n2" -> "94 fish\n0.0\n1" [label=Yes]
+	"95 and\n0.99605558288\n2"
+	"93 fish\n0.99605558288\n2" -> "95 and\n0.99605558288\n2" [label=No]
+	"96 and\n0.0\n1"
+	"93 fish\n0.99605558288\n2" -> "96 and\n0.0\n1" [label=Yes]
+	"97 other\n0.811278124459\n2"
+	"95 and\n0.99605558288\n2" -> "97 other\n0.811278124459\n2" [label=No]
+	"98 other\n0.99767001503\n1"
+	"95 and\n0.99605558288\n2" -> "98 other\n0.99767001503\n1" [label=Yes]
+	"99 are\n0.999925397994\n1"
+	"98 other\n0.99767001503\n1" -> "99 are\n0.999925397994\n1" [label=No]
+	"100 are\n0.934849024235\n1"
+	"98 other\n0.99767001503\n1" -> "100 are\n0.934849024235\n1" [label=Yes]
+}
