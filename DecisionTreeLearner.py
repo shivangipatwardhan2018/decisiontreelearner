@@ -293,18 +293,17 @@ def startProgram(remainingFeatures):
     printDecisionTree("average")
     generateDataGraphs()
 
-    #upload Test Data
-    # uploadTestData()
-
 def printDecisionTree(name):
     graph.render(filename='dataset/'+name)
 
 def generateDataGraphs():
-    plt.plot(trainWeightedPlotPointsIndex, trainWeightedPlotPointsPercent, 'r--', trainAveragePlotPointsIndex, trainAveragePlotPointsPercent, 'b^')
+    plt.figure(1)
+    plt.subplot(211)
+    plt.plot(trainWeightedPlotPointsIndex, trainWeightedPlotPointsPercent, 'r--', trainAveragePlotPointsIndex, trainAveragePlotPointsPercent, 'b--')
     plt.title("Training Data Accuracy: Weighted (red) and Average (blue) Information Gain")
-    plt.show()
-    plt.plot(testWeightedPlotPointsIndex, testWeightedPlotPointsPercent, 'r--', trainAveragePlotPointsIndex, trainAveragePlotPointsPercent, 'b^')
-    plt.title("Test Data Accuracy: Weighted (red) and Average (blue) Information Gain")
+    plt.subplot(212)
+    plt.plot(testWeightedPlotPointsIndex, testWeightedPlotPointsPercent, 'b--', testAveragePlotPointsIndex, testAveragePlotPointsPercent, 'g--')
+    plt.title("Test Data Accuracy: Weighted (blue) and Average (green) Information Gain")
     plt.show()
 
 def populateTestDataValue():
