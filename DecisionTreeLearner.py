@@ -42,9 +42,12 @@ def computeInformationGainDelta(featureAppearsIn, featureDoesNotAppearIn, method
         featureOneTotal = float(featureAppearsIn.__len__())
         featureTwoTotal = float(featureDoesNotAppearIn.__len__())
         totalElements = featureOneTotal + featureTwoTotal
-        return (featureOneTotal/totalElements) * infoGainFeatureOne + (featureTwoTotal/totalElements) * infoGainFeatureTwo
+        if totalElements != 0:
+            return (featureOneTotal/totalElements) * infoGainFeatureOne + (featureTwoTotal/totalElements) * infoGainFeatureTwo
+        else:
+            return 0.0
     else:
-        return (1 / 2) * infoGainFeatureOne + (1 / 2) * infoGainFeatureTwo
+        return (0.5) * infoGainFeatureOne + (0.5) * infoGainFeatureTwo
 
 # calculates teh initial point estimate, how many of each type of article there are
 # Input: The dataSet containing current articleIndex values
@@ -122,9 +125,15 @@ def generateMaximumInformationGainElement(exampleDataset, remainingFeatures, met
         splitInformationGain = computeInformationGainDelta(featureAffirmative, featureNegative, method)
 
         deltaInformationGain = informationConstant - splitInformationGain
-        # print pointestimate
+
+        # print "AT INDEX: " + str(wordID) + " WORD: " + wordDict[wordID]
+        # print "I(E)" + str(informationConstant)
+        # print "I(E_split)" + str(splitInformationGain)
+        # print "Delta I(E) - I(E_split): " + str(deltaInformationGain)
+        # print "Point Estimate" + str(pointestimate)
         # print featureAffirmative
         # print featureNegative
+
         pq.push(DataNode(wordID, deltaInformationGain, [featureNegative, featureAffirmative], pointestimate), deltaInformationGain)
     return pq.pop()
 
@@ -223,15 +232,16 @@ def decisionTreeLearner(completeDataSet, remainingFeatures, method):
     heapq = PriorityQueue()
     heapq.push(rootNode, rootNode.informationGain)
     index = 0
+    nodeNumber = 0
     deltaGain = -1.0
     # TODO: Alter this condition to be more valid -- delta is zero
-    while(index < 100):
+    while(nodeNumber < 10):
         # print "     ********************** New Element **********************   " + str(index)
         topFeature = heapq.pop()
 
         # print wordDict[topFeature.featureName]
         # print topFeature.informationGain
-
+        nodeNumber += 1
         # for each feature 0 or 1
         for featureValue in range(0, 2):
             # print "--------------- Feature Iteration ---------------: remaining features = " + str(len(remainingFeatures))
@@ -276,19 +286,19 @@ def decisionTreeLearner(completeDataSet, remainingFeatures, method):
 
             graph.edge(str(topFeature.nodeIndex) + " " + wordDict[topFeature.featureName] + "\\n" + str(topFeature.informationGain) + "\\n" + str(topFeature.pointEstimate),
                        str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate), label=labelEdge)
-            print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, index, method)) + " INDEX: " + str(index) + " **************** "
-            print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, index, method)) + " INDEX: " + str(index) + " **************** "
+            print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
+            print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
 
             heapq.push(newInformationGainNode, newInformationGainNode.informationGain)
-    print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, index, method)) + " INDEX: " + str(index) + " **************** "
-    print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, index, method)) + " INDEX: " + str(index) + " **************** "
+    print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
+    print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
 
     return rootNode
 
 def startProgram(remainingFeatures):
     # Pass in all the ID numbers for the articles
-    weightedDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "weighted")
-    printDecisionTree("weighted")
+    # weightedDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "weighted")
+    # printDecisionTree("weighted")
     avgDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "average")
     printDecisionTree("average")
     generateDataGraphs()
