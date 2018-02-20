@@ -199,4 +199,204 @@ digraph {
 	"89 comp\n0.0427413706246\n1" -> "99 uchicago\n0.0340539729724\n1" [label=No]
 	"100 archive\n-0.0\n2"
 	"89 comp\n0.0427413706246\n1" -> "100 archive\n-0.0\n2" [label=Yes]
+	"101 keith\n0.0410329471593\n2"
+	"97 atheist\n0.0383221894363\n2" -> "101 keith\n0.0410329471593\n2" [label=No]
+	"102 archive\n-0.0\n1"
+	"97 atheist\n0.0383221894363\n2" -> "102 archive\n-0.0\n1" [label=Yes]
+	"103 murder\n0.0292086159935\n2"
+	"101 keith\n0.0410329471593\n2" -> "103 murder\n0.0292086159935\n2" [label=No]
+	"104 archive\n-0.0\n1"
+	"101 keith\n0.0410329471593\n2" -> "104 archive\n-0.0\n1" [label=Yes]
+	"105 edges\n0.0359762933079\n1"
+	"99 uchicago\n0.0340539729724\n1" -> "105 edges\n0.0359762933079\n1" [label=No]
+	"106 archive\n-0.0\n2"
+	"99 uchicago\n0.0340539729724\n1" -> "106 archive\n-0.0\n2" [label=Yes]
+	"107 slow\n0.038197043123\n1"
+	"105 edges\n0.0359762933079\n1" -> "107 slow\n0.038197043123\n1" [label=No]
+	"108 archive\n-0.0\n2"
+	"105 edges\n0.0359762933079\n1" -> "108 archive\n-0.0\n2" [label=Yes]
+	"109 files\n0.0269337451967\n1"
+	"107 slow\n0.038197043123\n1" -> "109 files\n0.0269337451967\n1" [label=No]
+	"110 archive\n-0.0\n2"
+	"107 slow\n0.038197043123\n1" -> "110 archive\n-0.0\n2" [label=Yes]
+	"111 laughter\n0.0309621709558\n2"
+	"103 murder\n0.0292086159935\n2" -> "111 laughter\n0.0309621709558\n2" [label=No]
+	"112 archive\n-0.0\n1"
+	"103 murder\n0.0292086159935\n2" -> "112 archive\n-0.0\n1" [label=Yes]
+	"113 liar\n0.0331068441937\n2"
+	"111 laughter\n0.0309621709558\n2" -> "113 liar\n0.0331068441937\n2" [label=No]
+	"114 archive\n-0.0\n1"
+	"111 laughter\n0.0309621709558\n2" -> "114 archive\n-0.0\n1" [label=Yes]
+	"115 for\n0.0256321450998\n2"
+	"113 liar\n0.0331068441937\n2" -> "115 for\n0.0256321450998\n2" [label=No]
+	"116 archive\n-0.0\n1"
+	"113 liar\n0.0331068441937\n2" -> "116 archive\n-0.0\n1" [label=Yes]
+	"117 vnet\n0.0282555129734\n1"
+	"109 files\n0.0269337451967\n1" -> "117 vnet\n0.0282555129734\n1" [label=No]
+	"118 archive\n0.0\n2"
+	"109 files\n0.0269337451967\n1" -> "118 archive\n0.0\n2" [label=Yes]
+	"119 address\n0.0302367794929\n1"
+	"117 vnet\n0.0282555129734\n1" -> "119 address\n0.0302367794929\n1" [label=No]
+	"120 archive\n-0.0\n2"
+	"117 vnet\n0.0282555129734\n1" -> "120 archive\n-0.0\n2" [label=Yes]
+	"121 tiff\n0.0327809157088\n1"
+	"119 address\n0.0302367794929\n1" -> "121 tiff\n0.0327809157088\n1" [label=No]
+	"122 make\n0.970950594455\n2"
+	"119 address\n0.0302367794929\n1" -> "122 make\n0.970950594455\n2" [label=Yes]
+	"123 archive\n-0.0\n2"
+	"122 make\n0.970950594455\n2" -> "123 archive\n-0.0\n2" [label=No]
+	"124 archive\n-0.0\n1"
+	"122 make\n0.970950594455\n2" -> "124 archive\n-0.0\n1" [label=Yes]
+	"125 you\n0.0184464768987\n1"
+	"121 tiff\n0.0327809157088\n1" -> "125 you\n0.0184464768987\n1" [label=No]
+	"126 archive\n-0.0\n2"
+	"121 tiff\n0.0327809157088\n1" -> "126 archive\n-0.0\n2" [label=Yes]
+	"127 name\n0.0448630491791\n2"
+	"115 for\n0.0256321450998\n2" -> "127 name\n0.0448630491791\n2" [label=No]
+	"128 archive\n0.0\n2"
+	"115 for\n0.0256321450998\n2" -> "128 archive\n0.0\n2" [label=Yes]
+	"129 hope\n0.0450538827068\n2"
+	"127 name\n0.0448630491791\n2" -> "129 hope\n0.0450538827068\n2" [label=No]
+	"130 it\n0.918295834054\n1"
+	"127 name\n0.0448630491791\n2" -> "130 it\n0.918295834054\n1" [label=Yes]
+	"131 archive\n-0.0\n1"
+	"130 it\n0.918295834054\n1" -> "131 archive\n-0.0\n1" [label=No]
+	"132 archive\n-0.0\n2"
+	"130 it\n0.918295834054\n1" -> "132 archive\n-0.0\n2" [label=Yes]
+	"133 no\n0.0461183402775\n2"
+	"129 hope\n0.0450538827068\n2" -> "133 no\n0.0461183402775\n2" [label=No]
+	"134 are\n1.0\n1"
+	"129 hope\n0.0450538827068\n2" -> "134 are\n1.0\n1" [label=Yes]
+	"135 archive\n-0.0\n1"
+	"134 are\n1.0\n1" -> "135 archive\n-0.0\n1" [label=No]
+	"136 archive\n-0.0\n2"
+	"134 are\n1.0\n1" -> "136 archive\n-0.0\n2" [label=Yes]
+	"137 word\n0.0650730749546\n2"
+	"133 no\n0.0461183402775\n2" -> "137 word\n0.0650730749546\n2" [label=No]
+	"138 any\n0.469565211115\n2"
+	"133 no\n0.0461183402775\n2" -> "138 any\n0.469565211115\n2" [label=Yes]
+	"139 archive\n-0.0\n2"
+	"138 any\n0.469565211115\n2" -> "139 archive\n-0.0\n2" [label=No]
+	"140 is\n0.918295834054\n1"
+	"138 any\n0.469565211115\n2" -> "140 is\n0.918295834054\n1" [label=Yes]
+	"141 archive\n-0.0\n2"
+	"140 is\n0.918295834054\n1" -> "141 archive\n-0.0\n2" [label=No]
+	"142 archive\n-0.0\n1"
+	"140 is\n0.918295834054\n1" -> "142 archive\n-0.0\n1" [label=Yes]
+	"143 archive\n-0.0\n2"
+	"137 word\n0.0650730749546\n2" -> "143 archive\n-0.0\n2" [label=No]
+	"144 archive\n-0.0\n1"
+	"137 word\n0.0650730749546\n2" -> "144 archive\n-0.0\n1" [label=Yes]
+	"145 have\n0.0710555302815\n1"
+	"125 you\n0.0184464768987\n1" -> "145 have\n0.0710555302815\n1" [label=No]
+	"146 format\n0.0323518966905\n1"
+	"125 you\n0.0184464768987\n1" -> "146 format\n0.0323518966905\n1" [label=Yes]
+	"147 they\n0.0976205341271\n1"
+	"145 have\n0.0710555302815\n1" -> "147 they\n0.0976205341271\n1" [label=No]
+	"148 archive\n-0.0\n1"
+	"145 have\n0.0710555302815\n1" -> "148 archive\n-0.0\n1" [label=Yes]
+	"149 as\n0.204204398445\n1"
+	"147 they\n0.0976205341271\n1" -> "149 as\n0.204204398445\n1" [label=No]
+	"150 archive\n-0.0\n1"
+	"147 they\n0.0976205341271\n1" -> "150 archive\n-0.0\n1" [label=Yes]
+	"151 more\n0.199203505429\n1"
+	"149 as\n0.204204398445\n1" -> "151 more\n0.199203505429\n1" [label=No]
+	"152 archive\n-0.0\n1"
+	"149 as\n0.204204398445\n1" -> "152 archive\n-0.0\n1" [label=Yes]
+	"153 be\n0.192829283906\n1"
+	"151 more\n0.199203505429\n1" -> "153 be\n0.192829283906\n1" [label=No]
+	"154 archive\n-0.0\n2"
+	"151 more\n0.199203505429\n1" -> "154 archive\n-0.0\n2" [label=Yes]
+	"155 in\n0.503258334776\n1"
+	"153 be\n0.192829283906\n1" -> "155 in\n0.503258334776\n1" [label=No]
+	"156 people\n0.970950594455\n2"
+	"153 be\n0.192829283906\n1" -> "156 people\n0.970950594455\n2" [label=Yes]
+	"157 archive\n-0.0\n2"
+	"156 people\n0.970950594455\n2" -> "157 archive\n-0.0\n2" [label=No]
+	"158 archive\n-0.0\n1"
+	"156 people\n0.970950594455\n2" -> "158 archive\n-0.0\n1" [label=Yes]
+	"159 archive\n-0.0\n2"
+	"155 in\n0.503258334776\n1" -> "159 archive\n-0.0\n2" [label=No]
+	"160 archive\n-0.0\n1"
+	"155 in\n0.503258334776\n1" -> "160 archive\n-0.0\n1" [label=Yes]
+	"161 extension\n0.0414365710875\n1"
+	"146 format\n0.0323518966905\n1" -> "161 extension\n0.0414365710875\n1" [label=No]
+	"162 archive\n-0.0\n2"
+	"146 format\n0.0323518966905\n1" -> "162 archive\n-0.0\n2" [label=Yes]
+	"163 archive\n-0.0\n1"
+	"161 extension\n0.0414365710875\n1" -> "163 archive\n-0.0\n1" [label=No]
+	"164 archive\n-0.0\n2"
+	"161 extension\n0.0414365710875\n1" -> "164 archive\n-0.0\n2" [label=Yes]
+	"165 name\n-0.0\n2"
+	"4 archive\n0.0\n2" -> "165 name\n-0.0\n2" [label=No]
+	"166 name\n-0.0\n2"
+	"4 archive\n0.0\n2" -> "166 name\n-0.0\n2" [label=Yes]
+	"167 name\n0.0\n1"
+	"7 archive\n-0.0\n1" -> "167 name\n0.0\n1" [label=No]
+	"168 name\n0.0\n1"
+	"7 archive\n-0.0\n1" -> "168 name\n0.0\n1" [label=Yes]
+	"169 atheism\n-0.0\n2"
+	"9 name\n0.0\n2" -> "169 atheism\n-0.0\n2" [label=No]
+	"170 atheism\n-0.0\n2"
+	"9 name\n0.0\n2" -> "170 atheism\n-0.0\n2" [label=Yes]
+	"171 atheism\n0.0\n1"
+	"10 name\n-0.0\n1" -> "171 atheism\n0.0\n1" [label=No]
+	"172 atheism\n0.0\n1"
+	"10 name\n-0.0\n1" -> "172 atheism\n0.0\n1" [label=Yes]
+	"173 name\n-0.0\n2"
+	"12 archive\n-0.0\n2" -> "173 name\n-0.0\n2" [label=No]
+	"174 name\n0.0\n1"
+	"12 archive\n-0.0\n2" -> "174 name\n0.0\n1" [label=Yes]
+	"175 name\n0.0\n1"
+	"16 archive\n-0.0\n1" -> "175 name\n0.0\n1" [label=No]
+	"176 name\n0.0\n1"
+	"16 archive\n-0.0\n1" -> "176 name\n0.0\n1" [label=Yes]
+	"177 name\n-0.0\n1"
+	"18 archive\n-0.0\n1" -> "177 name\n-0.0\n1" [label=No]
+	"178 name\n0.0\n1"
+	"18 archive\n-0.0\n1" -> "178 name\n0.0\n1" [label=Yes]
+	"179 name\n-0.0\n2"
+	"21 archive\n-0.0\n2" -> "179 name\n-0.0\n2" [label=No]
+	"180 name\n0.0\n1"
+	"21 archive\n-0.0\n2" -> "180 name\n0.0\n1" [label=Yes]
+	"181 name\n-0.0\n1"
+	"22 archive\n-0.0\n1" -> "181 name\n-0.0\n1" [label=No]
+	"182 name\n0.0\n1"
+	"22 archive\n-0.0\n1" -> "182 name\n0.0\n1" [label=Yes]
+	"183 name\n-0.0\n1"
+	"26 archive\n-0.0\n1" -> "183 name\n-0.0\n1" [label=No]
+	"184 name\n0.0\n1"
+	"26 archive\n-0.0\n1" -> "184 name\n0.0\n1" [label=Yes]
+	"185 name\n-0.0\n2"
+	"27 archive\n-0.0\n2" -> "185 name\n-0.0\n2" [label=No]
+	"186 name\n0.0\n1"
+	"27 archive\n-0.0\n2" -> "186 name\n0.0\n1" [label=Yes]
+	"187 name\n-0.0\n2"
+	"29 archive\n-0.0\n2" -> "187 name\n-0.0\n2" [label=No]
+	"188 name\n0.0\n1"
+	"29 archive\n-0.0\n2" -> "188 name\n0.0\n1" [label=Yes]
+	"189 name\n-0.0\n1"
+	"30 archive\n-0.0\n1" -> "189 name\n-0.0\n1" [label=No]
+	"190 name\n0.0\n1"
+	"30 archive\n-0.0\n1" -> "190 name\n0.0\n1" [label=Yes]
+	"191 name\n-0.0\n2"
+	"32 archive\n-0.0\n2" -> "191 name\n-0.0\n2" [label=No]
+	"192 name\n0.0\n1"
+	"32 archive\n-0.0\n2" -> "192 name\n0.0\n1" [label=Yes]
+	"193 name\n-0.0\n2"
+	"34 archive\n-0.0\n2" -> "193 name\n-0.0\n2" [label=No]
+	"194 name\n0.0\n1"
+	"34 archive\n-0.0\n2" -> "194 name\n0.0\n1" [label=Yes]
+	"195 name\n-0.0\n1"
+	"36 archive\n-0.0\n1" -> "195 name\n-0.0\n1" [label=No]
+	"196 name\n0.0\n1"
+	"36 archive\n-0.0\n1" -> "196 name\n0.0\n1" [label=Yes]
+	"197 name\n-0.0\n2"
+	"38 archive\n-0.0\n2" -> "197 name\n-0.0\n2" [label=No]
+	"198 name\n0.0\n1"
+	"38 archive\n-0.0\n2" -> "198 name\n0.0\n1" [label=Yes]
+	"199 name\n-0.0\n1"
+	"40 archive\n-0.0\n1" -> "199 name\n-0.0\n1" [label=No]
+	"200 name\n0.0\n1"
+	"40 archive\n-0.0\n1" -> "200 name\n0.0\n1" [label=Yes]
 }
