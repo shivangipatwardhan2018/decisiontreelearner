@@ -11,7 +11,7 @@ from DataNodePriorityQueue import PriorityQueue
 def computeIndividualInformationGain(inputDataSet):
     featureArticleAtheism = 0.0
     featureArticleGraphics = 0.0
-    # print inputDataSet
+
     for articleNumber in inputDataSet:
         if (articleLabelDict[articleNumber] == "1"):
             featureArticleAtheism += 1
@@ -32,12 +32,8 @@ def computeIndividualInformationGain(inputDataSet):
 
 # Calculate the Split Information Gain either on average or by weight
 def computeInformationGainDelta(featureAppearsIn, featureDoesNotAppearIn, method):
-    # print featureAppearsIn
     infoGainFeatureOne = computeIndividualInformationGain(featureAppearsIn)
     infoGainFeatureTwo = computeIndividualInformationGain(featureDoesNotAppearIn)
-    # print " infoGainFeatureOne: " + str(infoGainFeatureOne)
-    # print featureDoesNotAppearIn
-    # print " infoGainFeatureOne: " + str(infoGainFeatureTwo)
     if method == "weighted":
         featureOneTotal = float(featureAppearsIn.__len__())
         featureTwoTotal = float(featureDoesNotAppearIn.__len__())
@@ -53,10 +49,7 @@ def computeInformationGainDelta(featureAppearsIn, featureDoesNotAppearIn, method
 # Input: The dataSet containing current articleIndex values
 # Output: a DataNode determining which types of article is most common
 def pointEstimate(dataset):
-    # print "       Point Estimate :    "
     numAtheism, numGraphics = computeNumberOfTimesEachLabelAppears(dataset)
-    # print "    Atheism: " + str(numAtheism)
-    # print "    Graphics: " + str(numGraphics)
     if numAtheism >= numGraphics: return 1
     else: return 2
 
@@ -73,7 +66,6 @@ def generateFeatureBasedSplitDataSets(articleDataSet, wordID):
             featureOccuresDataset.append(articleIndex)
         else:
             featureDoesNotOccureDataset.append(articleIndex)
-    # print featureOccuresDataset, featureDoesNotOccureDataset
     return (featureOccuresDataset, featureDoesNotOccureDataset)
 
 
@@ -91,13 +83,11 @@ def computeNumberOfTimesEachLabelAppears(articleDataset):
     return numAtheism, numGraphics
 
 
-# computeTotalInfomationContent: can be used to calculate the total Information Content, if
+# ComputeTotalInfomationContent: can be used to calculate the total Information Content, if
 # its the entire set count then
 def computeTotalInfomationContent(articleDataset):
     numAtheism, numGraphics = computeNumberOfTimesEachLabelAppears(articleDataset)
     total = numAtheism + numGraphics
-    # print "graphics: " + str(numGraphics)
-    # print "atheism: " + str(numAtheism)
     if(numGraphics == 0 and numAtheism == 0):
         return 0.0
         # raise Exception("Both NumGraphics and numAtheism are 0")
@@ -111,34 +101,23 @@ def computeTotalInfomationContent(articleDataset):
         return -(numGraphics * math.log(numGraphics, 2) + numAtheism * math.log(numAtheism, 2))
 
 
+# Get the single element which has a maximum information gain value
 def generateMaximumInformationGainElement(exampleDataset, remainingFeatures, method):
     pq = PriorityQueue()
-    # print exampleDataset
+
     informationConstant = computeTotalInfomationContent(exampleDataset)
     pointestimate = pointEstimate(exampleDataset)
-    # print "INFORMATION CONTENT GAIN: " + str(informationConstant)
-    # print remainingFeatures
+
     for wordID in remainingFeatures:
-        # print "AT INDEX: " + str(wordID ) + " WORD: " + wordDict[wordID]
         featureAffirmative, featureNegative = generateFeatureBasedSplitDataSets(exampleDataset, wordID)
-
         splitInformationGain = computeInformationGainDelta(featureAffirmative, featureNegative, method)
-
         deltaInformationGain = informationConstant - splitInformationGain
-
-        # print "AT INDEX: " + str(wordID) + " WORD: " + wordDict[wordID]
-        # print "I(E)" + str(informationConstant)
-        # print "I(E_split)" + str(splitInformationGain)
-        # print "Delta I(E) - I(E_split): " + str(deltaInformationGain)
-        # print "Point Estimate" + str(pointestimate)
-        # print featureAffirmative
-        # print featureNegative
-
         pq.push(DataNode(wordID, deltaInformationGain, [featureNegative, featureAffirmative], pointestimate), deltaInformationGain)
     return pq.pop()
 
+
 # Core algorithm to generate the decision tree learner
-# Input:
+# Input: remaining Features and the word we are filtering out
 # Output: The final decision tree
 def calculateRemainingFeatures(remainingFeatures, word):
     filteredRemainingFeatures = []
@@ -147,133 +126,41 @@ def calculateRemainingFeatures(remainingFeatures, word):
             filteredRemainingFeatures.append(wordid)
     return filteredRemainingFeatures
 
-graph = gv.Digraph(format='svg' )
 
-testWeightedPlotPointsIndex = []
-testWeightedPlotPointsPercent = []
-testAveragePlotPointsIndex = []
-testAveragePlotPointsPercent = []
-def runTestDataAccuracyTest(rootNode, index, method):
-#     articleLabelDict
-    matchingLabelTrain = 0.0
-#   docId = 1
-    for docId in range(0, testNumArticles):
-        assignedPointEstimate = trainDataTest(rootNode, docId, testArrayData)
-        if assignedPointEstimate == int(testArticleLabelDict[docId+1]):
-            matchingLabelTrain += 1.0
-    calulatedPercentage = matchingLabelTrain/len(testArticleLabelDict) * 100
-    if method == "weighted":
-        testWeightedPlotPointsIndex.append(index)
-        testWeightedPlotPointsPercent.append(calulatedPercentage)
-    else:
-        testAveragePlotPointsIndex.append(index)
-        testAveragePlotPointsPercent.append(calulatedPercentage)
-    # print plotPoints
-    return calulatedPercentage
+# /**************************************/
 
+# DECISION TREE LEARNER IMPLEMENTATION
 
-trainWeightedPlotPointsIndex = []
-trainWeightedPlotPointsPercent = []
-trainAveragePlotPointsIndex = []
-trainAveragePlotPointsPercent = []
-def runTrainingDataAccuracy(rootNode, index, method):
-#     articleLabelDict
-    matchingLabelTrain = 0.0
-#   docId = 1
-    for docId in range(0, numArticles):
-        assignedPointEstimate = trainDataTest(rootNode, docId, array)
-        if assignedPointEstimate == int(articleLabelDict[docId+1]):
-            matchingLabelTrain += 1.0
-    # print "CORRECT LABEL: " + str(matchingLabel)
-    calulatedPercentage = matchingLabelTrain/len(articleLabelDict) * 100
-    if method == "weighted":
-        trainWeightedPlotPointsIndex.append(index)
-        trainWeightedPlotPointsPercent.append(calulatedPercentage)
-    else:
-        trainAveragePlotPointsIndex.append(index)
-        trainAveragePlotPointsPercent.append(calulatedPercentage)
-    # print plotPoints
-    return calulatedPercentage
+# /**************************************/
 
-def trainDataTest(node, docId, arrayToCheck):
-    # print "******* INSIDE TEST DATA FUNCTION ******* " + str(docId) + " " + str(node.nodeIndex)
-
-    if node.informationGain == 0.0:
-        # print "Zero: " + str(node.pointEstimate)
-        return node.pointEstimate
-    if arrayToCheck[docId - 1][node.featureName - 1] == 1:
-        # print "Checking Feature: " + wordDict[node.featureName]
-        if node.right != None:
-            # print "     Going Right: " + str(node.pointEstimate)
-            return trainDataTest(node.right, docId, arrayToCheck)
-        else:
-            # print " RETURNING POINT ESTIMATE SINCE RIGHT IS NONE"
-            return node.pointEstimate
-    else:
-        if node.left != None:
-            # print "     Going Left: " + str(node.pointEstimate)
-            return trainDataTest(node.left, docId, arrayToCheck)
-        else:
-            # print " RETURNING POINT ESTIMATE SINCE LEFT IS NONE"
-            return node.pointEstimate
-
+graph = gv.Digraph(format='svg')
+graph2 = gv.Digraph(format='svg')
 def decisionTreeLearner(completeDataSet, remainingFeatures, method):
-    # Calculate the point estimate for all the articles
     rootNode = generateMaximumInformationGainElement(completeDataSet, remainingFeatures, method)
     rootNode.remainingFeaturesSet = calculateRemainingFeatures(remainingFeatures, rootNode.featureName)
-    # print " DATA SPLIT : " + str(rootNode.informationGain)
-    print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, 0, method)) + " INDEX: " + str(0) + " **************** "
-    print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, 0, method)) + " INDEX: " + str(0) + " **************** "
+    print str(runTrainingDataAccuracy(rootNode, 0, method))
+    print str(runTestDataAccuracyTest(rootNode, 0, method))
 
     rootNode.nodeIndex = 0
 
-    # print " TESTING ACCURACY:    " + str(testAccuracy(rootNode)) + " INDEX: " + str(0)
-    # print maxGain.remainingFeaturesSet
     heapq = PriorityQueue()
     heapq.push(rootNode, rootNode.informationGain)
     index = 0
     nodeNumber = 0
     deltaGain = -1.0
-    # TODO: Alter this condition to be more valid -- delta is zero
-    while(nodeNumber < 10):
-        # print "     ********************** New Element **********************   " + str(index)
-        topFeature = heapq.pop()
 
-        # print wordDict[topFeature.featureName]
-        # print topFeature.informationGain
+    while(nodeNumber < 100):
+        topFeature = heapq.pop()
         nodeNumber += 1
-        # for each feature 0 or 1
+
         for featureValue in range(0, 2):
-            # print "--------------- Feature Iteration ---------------: remaining features = " + str(len(remainingFeatures))
             splitDataSet = topFeature.dataSets[featureValue]
-            # print len(splitDataSet)
-            # print topFeature.dataSets[1]
-            # print len(topFeature.dataSets[1])
             newInformationGainNode = generateMaximumInformationGainElement(splitDataSet, topFeature.remainingFeaturesSet, method)
             newInformationGainNode.remainingFeaturesSet = calculateRemainingFeatures(topFeature.remainingFeaturesSet, newInformationGainNode.featureName)
             index += 1
             newInformationGainNode.nodeIndex = index
 
-            # print " *************** NEW WORD ***************"
-            # print newInformationGainNode.featureName
-            # print "     NODE INDEX: " + str(newInformationGainNode.nodeIndex)
-            # print wordDict[newInformationGainNode.featureName]
-            # print newInformationGainNode.informationGain
-
-            # if(index == 9):
-            #     print "   INDEX 9 NEGATIVE: "
-            #     print newInformationGainNode.dataSets[0]
-            #     print str(len(newInformationGainNode.dataSets[0]))
-            #     print "   INDEX 9 POSITIVE: "
-            #     print newInformationGainNode.dataSets[1]
-            #     print str(len(newInformationGainNode.dataSets[1]))
-            #
-            # print str(len(newInformationGainNode.dataSets[1]))
-            #
-            # # print newInformationGainNode.remainingFeaturesSet
-            # print newInformationGainNode.pointEstimate
-            # print " *************** ******* ***************"
-
+            # GRAPH GNERATIONS
             if(featureValue == 0):
                 topFeature.left = newInformationGainNode
                 labelEdge = "No"
@@ -281,30 +168,39 @@ def decisionTreeLearner(completeDataSet, remainingFeatures, method):
                 topFeature.right = newInformationGainNode
                 labelEdge = "Yes"
 
-
-            graph.node(str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate))
-
-            graph.edge(str(topFeature.nodeIndex) + " " + wordDict[topFeature.featureName] + "\\n" + str(topFeature.informationGain) + "\\n" + str(topFeature.pointEstimate),
+            if (method == "weighted"):
+                graph.node(str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate))
+                graph.edge(str(topFeature.nodeIndex) + " " + wordDict[topFeature.featureName] + "\\n" + str(topFeature.informationGain) + "\\n" + str(topFeature.pointEstimate),
                        str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate), label=labelEdge)
-            print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
-            print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
+            else:
+                graph2.node(str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate))
+                graph2.edge(str(topFeature.nodeIndex) + " " + wordDict[topFeature.featureName] + "\\n" + str(topFeature.informationGain) + "\\n" + str(topFeature.pointEstimate),str(index) + " " + wordDict[newInformationGainNode.featureName] + "\\n" + str(
+                               newInformationGainNode.informationGain) + "\\n" + str(newInformationGainNode.pointEstimate), label=labelEdge)
+
+            # TESTING METHOD
+            print str(runTrainingDataAccuracy(rootNode, nodeNumber, method))
+            print str(runTestDataAccuracyTest(rootNode, nodeNumber, method))
 
             heapq.push(newInformationGainNode, newInformationGainNode.informationGain)
-    print " **************** TRAINING ACCURACY:    " + str(runTrainingDataAccuracy(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
-    print " **************** TESTING ACCURACY:    " + str(runTestDataAccuracyTest(rootNode, nodeNumber, method)) + " INDEX: " + str(nodeNumber) + " **************** "
+
+    print str(runTrainingDataAccuracy(rootNode, nodeNumber, method))
+    print str(runTestDataAccuracyTest(rootNode, nodeNumber, method))
 
     return rootNode
 
 def startProgram(remainingFeatures):
-    # Pass in all the ID numbers for the articles
-    # weightedDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "weighted")
-    # printDecisionTree("weighted")
+    weightedDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "weighted")
+    printDecisionTree("weighted")
     avgDecisionTree = decisionTreeLearner(range(1, numArticles + 1), remainingFeatures, "average")
     printDecisionTree("average")
     generateDataGraphs()
 
+
 def printDecisionTree(name):
-    graph.render(filename='dataset/'+name)
+    if(name == "weighted"):
+       graph.render(filename='dataset/'+name)
+    elif(name == "average"):
+       graph2.render(filename='dataset/' + name)
 
 def generateDataGraphs():
     plt.figure(1)
@@ -316,6 +212,8 @@ def generateDataGraphs():
     plt.title("Average Information Gain: Training (blue) and Test (green) Accuracy")
     plt.show()
 
+
+# Set up all data
 def populateTestDataValue():
     # Classification of all the documents
     with open('dataset/testLabel.txt') as articleFile:
@@ -344,14 +242,12 @@ def populateTestDataValue():
             element = pair.split("\t")
             indexPairs = [int(index) for index in element]
             x, y = indexPairs
-            # print str(x)  + " " + str(y)
             testArrayData[x-1][y-1] = 1
     trainingData.close()
 
 
 
 def populateTrainingDataValues():
-    # WordFile holds all the actual words
     with open('dataset/words.txt') as wordFile:
         wordsArray = wordFile.read().splitlines()
         global wordDict
@@ -400,6 +296,74 @@ def populateTrainingDataValues():
     trainingData.close()
     populateTestDataValue()
     startProgram(remainingFeatures)
+
+
+# /**************************************/
+
+# TESTING METHODS
+
+# /**************************************/
+
+testWeightedPlotPointsIndex = []
+testWeightedPlotPointsPercent = []
+testAveragePlotPointsIndex = []
+testAveragePlotPointsPercent = []
+
+def runTestDataAccuracyTest(rootNode, index, method):
+    #     articleLabelDict
+    matchingLabelTrain = 0.0
+    #   docId = 1
+    for docId in range(0, testNumArticles):
+        assignedPointEstimate = trainDataTest(rootNode, docId, testArrayData)
+        if assignedPointEstimate == int(testArticleLabelDict[docId + 1]):
+            matchingLabelTrain += 1.0
+    calulatedPercentage = matchingLabelTrain / len(testArticleLabelDict) * 100
+    if method == "weighted":
+        testWeightedPlotPointsIndex.append(index)
+        testWeightedPlotPointsPercent.append(calulatedPercentage)
+    else:
+        testAveragePlotPointsIndex.append(index)
+        testAveragePlotPointsPercent.append(calulatedPercentage)
+    return calulatedPercentage
+
+
+
+trainWeightedPlotPointsIndex = []
+trainWeightedPlotPointsPercent = []
+trainAveragePlotPointsIndex = []
+trainAveragePlotPointsPercent = []
+
+def runTrainingDataAccuracy(rootNode, index, method):
+    matchingLabelTrain = 0.0
+    for docId in range(0, numArticles):
+        assignedPointEstimate = trainDataTest(rootNode, docId, array)
+        if assignedPointEstimate == int(articleLabelDict[docId + 1]):
+            matchingLabelTrain += 1.0
+    calulatedPercentage = matchingLabelTrain / len(articleLabelDict) * 100
+    if method == "weighted":
+        trainWeightedPlotPointsIndex.append(index)
+        trainWeightedPlotPointsPercent.append(calulatedPercentage)
+    else:
+        trainAveragePlotPointsIndex.append(index)
+        trainAveragePlotPointsPercent.append(calulatedPercentage)
+    return calulatedPercentage
+
+
+def trainDataTest(node, docId, arrayToCheck):
+    if node.informationGain == 0.0:
+        return node.pointEstimate
+    if arrayToCheck[docId - 1][node.featureName - 1] == 1:
+        if node.right != None:
+            return trainDataTest(node.right, docId, arrayToCheck)
+        else:
+            return node.pointEstimate
+    else:
+        if node.left != None:
+            return trainDataTest(node.left, docId, arrayToCheck)
+        else:
+            return node.pointEstimate
+
+
 
 def main():
     populateTrainingDataValues()
